@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="Risultato: 0"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/number1EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resultTextView"
+        android:layout_marginTop="64dp"
+        android:hint="Inserisci numero 1"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/number2EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/number1EditText"
+        android:layout_marginTop="64dp"
+        android:hint="Inserisci numero 2"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:layout_below="@id/number2EditText"
+        android:layout_marginTop="16dp"
+        android:onClick="onOperationClick"/>
+
+    <Button
+        android:id="@+id/subtractButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_toEndOf="@id/addButton"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/number2EditText"
+        android:layout_marginTop="16dp"
+        android:onClick="onOperationClick"/>
+
+    <Button
+        android:id="@+id/multiplyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:layout_toEndOf="@id/subtractButton"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/number2EditText"
+        android:layout_marginTop="16dp"
+        android:onClick="onOperationClick"/>
+
+    <Button
+        android:id="@+id/divideButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:layout_toEndOf="@id/multiplyButton"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/number2EditText"
+        android:layout_marginTop="16dp"
+        android:onClick="onOperationClick"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salva"
+        android:layout_below="@id/addButton"
+        android:layout_marginTop="16dp"
+        android:onClick="onSaveClick"/>
+
+    <Button
+        android:id="@+id/showHistoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostra Storia"
+        android:layout_below="@id/saveButton"
+        android:layout_marginTop="16dp"
+        android:onClick="onShowHistoryClick"/>
+</RelativeLayout>
