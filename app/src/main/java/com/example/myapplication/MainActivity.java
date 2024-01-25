@@ -1,12 +1,14 @@
 package com.example.myapplication;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+
+        import android.content.ContentValues;
+        import android.content.Intent;
+        import android.database.Cursor;
+        import android.database.sqlite.SQLiteDatabase;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.EditText;
+        import android.widget.TextView;
+        import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
             }
-//CIAO
+
             resultTextView.setText("Risultato: " + result);
             saveResultToDatabase(result);
 
@@ -69,26 +71,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onShowHistoryClick(View view) {
-        StringBuilder history = new StringBuilder("Storia dei risultati:\n");
-
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query(CDBHelper.TABLE_NAME, null, null, null, null, null, null);
-
-        int columnIndex = cursor.getColumnIndex(CDBHelper.COLUMN_RESULT);
-
-        while (cursor.moveToNext()) {
-            if (columnIndex >= 0) {
-                double result = cursor.getDouble(columnIndex);
-                history.append(result).append("\n");
-            }
-        }
-
-        cursor.close();
-        db.close();
-
-        resultTextView.setText(history.toString());
+        Intent intent = new Intent(this, HistoryActivity.class);
+        startActivity(intent);
     }
-
 
     private void saveResultToDatabase(double result) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -100,3 +85,4 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 }
+
